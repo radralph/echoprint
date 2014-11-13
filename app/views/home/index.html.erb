@@ -1,0 +1,6 @@
+<center>
+<%= form_tag "/index", multipart: true do %>
+  <%= file_field_tag :file %>
+  <br><br><br><br>
+  <%= submit_tag "Submit" %>
+<% end %>
