@@ -7,7 +7,9 @@ class HomeController < ApplicationController
 	req = HTTParty.post('http://developer.echonest.com/api/v4/track/upload',
 		:body => {"url" => url,
 				 "api_key" => api_key} )
-	render json: req.body
+	#render json: req.body
+	#render json: {'success' => true}
+
 	end
 
 end
