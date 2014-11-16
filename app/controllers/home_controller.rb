@@ -15,6 +15,10 @@ class HomeController < ApplicationController
 	##file upload
 	##after analyzing, delete file in directory
 
+
+	#search similar song:
+	##http://developer.echonest.com/api/v4/genre/similar?api_key=Q7FGWJCFD9UYURUXR&name=acid+jazz&bucket=description
+
 	end
 
 end
