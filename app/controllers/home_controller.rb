@@ -1,21 +1,29 @@
 class HomeController < ApplicationController
 
-	def index
 
-	file = params[:file]
-	api_key = 'Q7FGWJCFD9UYURUXR'
-	url = 'http://41cc9a70.ngrok.com/guessthissong.mp3'
+
+	require 'timeout'
+	status = Timeout::timeout(10) {
+	}
+
+
+	def upload
+	##Setup File
+	name = params[:file].original_filename
+	directory = "public/" ; path = File.join(directory, name)
+	File.open(path,"wb") { |f| f.write(params[:file].read) } 
+
+	##Set Echoprint
+	site = 'http://2789443a.ngrok.com/'
+	api_key = 'PSDYDEXB3L5COAXNK'
+	url = site+name
 	req = HTTParty.post('http://developer.echonest.com/api/v4/track/upload',
 		:body => {"url" => url,
 				 "api_key" => api_key} )
-	#render json: req.body
+	render json: req.body
 	#render json: {'success' => true}
-
-	##TODO:
-	##file upload
-	##after analyzing, delete file in directory
-
-
+	#File.delete(Rails.root + 'public/'+name)
+	logger.info url
 	#search similar song:
 	##http://developer.echonest.com/api/v4/genre/similar?api_key=Q7FGWJCFD9UYURUXR&name=acid+jazz&bucket=description
 

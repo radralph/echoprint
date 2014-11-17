@@ -1,5 +1,9 @@
 Echoprint::Application.routes.draw do
  
-  root :to => 'home#index'
 
- end
+post 'upload' => 'home#upload'
+
+
+root :to => 'home#index'
+
+end
