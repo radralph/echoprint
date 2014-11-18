@@ -24,8 +24,11 @@ class HomeController < ApplicationController
 	#render json: {'success' => true}
 	#File.delete(Rails.root + 'public/'+name)
 	logger.info url
-	#search similar song:
+	#search similar by genre:
 	##http://developer.echonest.com/api/v4/genre/similar?api_key=Q7FGWJCFD9UYURUXR&name=acid+jazz&bucket=description
+	#suggest music
+	#http://developer.echonest.com/api/v4/artist/suggest?api_key=PSDYDEXB3L5COAXNK&name=rad&results=5
+
 
 	end
 
