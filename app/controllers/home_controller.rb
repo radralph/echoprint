@@ -8,6 +8,12 @@ class HomeController < ApplicationController
 
 
 	def upload
+
+	##Set Echoprint
+	site = 'http://2789443a.ngrok.com/'
+	api_key = 'PSDYDEXB3L5COAXNK'
+	url = site+name
+
 	##Setup File
 	name = params[:file].original_filename
 	directory = "public/" ; path = File.join(directory, name)
@@ -20,11 +26,7 @@ class HomeController < ApplicationController
 
 
 
-	##Set Echoprint
-	site = 'http://2789443a.ngrok.com/'
-	api_key = 'PSDYDEXB3L5COAXNK'
-	url = site+name
-
+	
 	#render json: req.body
 	render json: {'success' => true}
 	#File.delete(Rails.root + 'public/'+name)
